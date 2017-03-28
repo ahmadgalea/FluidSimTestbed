@@ -1,10 +1,21 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Project1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  WindowManager.cpp
-c:\github\fluidsimtestbed\project1\windowmanager.h(5): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  InputManager.cpp
-c:\github\fluidsimtestbed\project1\inputmanager.h(3): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  EntryPoint.cpp
-c:\github\fluidsimtestbed\project1\windowmanager.h(5): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  ApplicationManager.cpp
-c:\github\fluidsimtestbed\project1\windowmanager.h(5): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  Generating Code...
+ApplicationManager.obj : error LNK2019: unresolved external symbol glfwSetErrorCallback referenced in function "private: void __cdecl ApplicationManager::InitialiseApplication(void)" (?InitialiseApplication@ApplicationManager@@AEAAXXZ)
+InputManager.obj : error LNK2019: unresolved external symbol glfwSetInputMode referenced in function "public: void __cdecl InputManager::InitialiseInputHandling(struct GLFWwindow *)" (?InitialiseInputHandling@InputManager@@QEAAXPEAUGLFWwindow@@@Z)
+WindowManager.obj : error LNK2019: unresolved external symbol __imp_glewInit referenced in function "public: void __cdecl WindowManager::InitialiseWindow(void)" (?InitialiseWindow@WindowManager@@QEAAXXZ)
+WindowManager.obj : error LNK2019: unresolved external symbol glfwInit referenced in function "public: void __cdecl WindowManager::InitialiseWindow(void)" (?InitialiseWindow@WindowManager@@QEAAXXZ)
+WindowManager.obj : error LNK2019: unresolved external symbol glfwTerminate referenced in function "public: __cdecl WindowManager::~WindowManager(void)" (??1WindowManager@@QEAA@XZ)
+WindowManager.obj : error LNK2019: unresolved external symbol glfwWindowHint referenced in function "public: void __cdecl WindowManager::CreateWindow(void)" (?CreateWindow@WindowManager@@QEAAXXZ)
+WindowManager.obj : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function "public: void __cdecl WindowManager::CreateWindow(void)" (?CreateWindow@WindowManager@@QEAAXXZ)
+WindowManager.obj : error LNK2019: unresolved external symbol glfwDestroyWindow referenced in function "public: __cdecl WindowManager::~WindowManager(void)" (??1WindowManager@@QEAA@XZ)
+WindowManager.obj : error LNK2019: unresolved external symbol glfwWindowShouldClose referenced in function "public: void __cdecl WindowManager::ExecuteMainLoop(class ApplicationManager *)" (?ExecuteMainLoop@WindowManager@@QEAAXPEAVApplicationManager@@@Z)
+WindowManager.obj : error LNK2019: unresolved external symbol glfwSetWindowSize referenced in function "public: void __cdecl WindowManager::InitialiseWindow(void)" (?InitialiseWindow@WindowManager@@QEAAXXZ)
+WindowManager.obj : error LNK2019: unresolved external symbol glfwSetFramebufferSizeCallback referenced in function "public: void __cdecl WindowManager::InitialiseWindow(void)" (?InitialiseWindow@WindowManager@@QEAAXXZ)
+WindowManager.obj : error LNK2019: unresolved external symbol glfwPollEvents referenced in function "public: void __cdecl WindowManager::ExecuteMainLoop(class ApplicationManager *)" (?ExecuteMainLoop@WindowManager@@QEAAXPEAVApplicationManager@@@Z)
+WindowManager.obj : error LNK2019: unresolved external symbol glfwGetKey referenced in function "public: void __cdecl WindowManager::ExecuteMainLoop(class ApplicationManager *)" (?ExecuteMainLoop@WindowManager@@QEAAXPEAVApplicationManager@@@Z)
+WindowManager.obj : error LNK2019: unresolved external symbol glfwMakeContextCurrent referenced in function "public: void __cdecl WindowManager::CreateWindow(void)" (?CreateWindow@WindowManager@@QEAAXXZ)
+WindowManager.obj : error LNK2019: unresolved external symbol glfwSwapBuffers referenced in function "public: void __cdecl WindowManager::ExecuteMainLoop(class ApplicationManager *)" (?ExecuteMainLoop@WindowManager@@QEAAXPEAVApplicationManager@@@Z)
+WindowManager.obj : error LNK2019: unresolved external symbol glfwSwapInterval referenced in function "public: void __cdecl WindowManager::CreateWindow(void)" (?CreateWindow@WindowManager@@QEAAXXZ)
+WindowManager.obj : error LNK2001: unresolved external symbol __imp_glewExperimental
+C:\GitHub\FluidSimTestbed\GLEW\glew32.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+C:\GitHub\FluidSimTestbed\GLFW\glfw3.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+C:\GitHub\FluidSimTestbed\x64\Debug\FluidSimTestbed.exe : fatal error LNK1120: 17 unresolved externals
