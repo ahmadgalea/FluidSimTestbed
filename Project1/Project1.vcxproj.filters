@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="FluidSimTestbed">
+      <UniqueIdentifier>{90787e20-f1b3-42f3-bd71-d29f45c92be9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FluidSimTestbed\ApplicationCore">
+      <UniqueIdentifier>{7cc98b37-06f5-4535-a9a3-4effad080bd9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EntryPoint.cpp">
+      <Filter>FluidSimTestbed</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplicationManager.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowManager.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ApplicationManager.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowManager.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
