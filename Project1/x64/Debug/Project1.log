@@ -1,4 +1,9 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Project1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (FluidSimTestbed.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  WindowManager.cpp
+  InputManager.cpp
+  EntryPoint.cpp
+  ApplicationManager.cpp
+  Generating Code...
 ApplicationManager.obj : error LNK2019: unresolved external symbol glfwSetErrorCallback referenced in function "private: void __cdecl ApplicationManager::InitialiseApplication(void)" (?InitialiseApplication@ApplicationManager@@AEAAXXZ)
 InputManager.obj : error LNK2019: unresolved external symbol glfwSetInputMode referenced in function "public: void __cdecl InputManager::InitialiseInputHandling(struct GLFWwindow *)" (?InitialiseInputHandling@InputManager@@QEAAXPEAUGLFWwindow@@@Z)
 WindowManager.obj : error LNK2019: unresolved external symbol __imp_glewInit referenced in function "public: void __cdecl WindowManager::InitialiseWindow(void)" (?InitialiseWindow@WindowManager@@QEAAXXZ)
@@ -18,4 +23,4 @@ WindowManager.obj : error LNK2019: unresolved external symbol glfwSwapInterval r
 WindowManager.obj : error LNK2001: unresolved external symbol __imp_glewExperimental
 C:\GitHub\FluidSimTestbed\GLEW\glew32.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
 C:\GitHub\FluidSimTestbed\GLFW\glfw3.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
-C:\GitHub\FluidSimTestbed\x64\Debug\FluidSimTestbed.exe : fatal error LNK1120: 17 unresolved externals
+C:\GitHub\FluidSimTestbed\x64\Debug\Project1.exe : fatal error LNK1120: 17 unresolved externals
