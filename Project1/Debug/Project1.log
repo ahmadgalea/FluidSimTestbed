@@ -1,17 +1,4 @@
-﻿  WindowManager.cpp
-  ShaderProgram.cpp
-  ShaderManager.cpp
-  Shader.cpp
-  PointBatch.cpp
-  InputManager.cpp
-  GlobalIOUtilities.cpp
-  EntryPoint.cpp
-  Camera.cpp
-  ApplicationManager.cpp
-  Generating Code...
-c:\github\fluidsimtestbed\project1\shadermanager.cpp(45): warning C4715: 'ShaderManager::LoadShaderProgram': not all control paths return a value
-c:\github\fluidsimtestbed\project1\shadermanager.cpp(94): warning C4715: 'ShaderManager::LoadShaderProgram': not all control paths return a value
-c:\github\fluidsimtestbed\project1\shadermanager.cpp(67): warning C4715: 'ShaderManager::LoadShaderProgram': not all control paths return a value
+﻿  Vector3D.cpp
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Project1.vcxproj -> C:\GitHub\FluidSimTestbed\Debug\Project1.exe
   Project1.vcxproj -> C:\GitHub\FluidSimTestbed\Debug\Project1.pdb (Partial PDB)

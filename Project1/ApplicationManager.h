@@ -20,5 +20,7 @@ public:
 
 	void ExecuteApplication();
 	void ExecuteApplicationStages();
+
+	void SetErrorCallback();
 	void ErrorCallback(int, const char*); // Used for error detection by GLFW
 };
