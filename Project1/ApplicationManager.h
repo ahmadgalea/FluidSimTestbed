@@ -2,6 +2,7 @@
 
 #include "WindowManager.h"
 #include "InputManager.h"
+#include "ShaderManager.h"
 
 class ApplicationManager
 {
@@ -9,6 +10,7 @@ private:
 
 	WindowManager windowManager;
 	InputManager inputManager;
+	ShaderManager shaderManager;
 
 	void InitialiseApplication();
 

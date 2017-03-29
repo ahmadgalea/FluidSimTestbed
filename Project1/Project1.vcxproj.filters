@@ -21,6 +21,24 @@
     <ClCompile Include="InputManager.cpp">
       <Filter>FluidSimTestbed\ApplicationCore</Filter>
     </ClCompile>
+    <ClCompile Include="ShaderManager.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderProgram.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalIOUtilities.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClCompile>
+    <ClCompile Include="PointBatch.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApplicationManager.h">
@@ -30,6 +48,24 @@
       <Filter>FluidSimTestbed\ApplicationCore</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderManager.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderProgram.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalIOUtilities.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="PointBatch.h">
       <Filter>FluidSimTestbed\ApplicationCore</Filter>
     </ClInclude>
   </ItemGroup>

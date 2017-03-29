@@ -18,6 +18,7 @@ void ApplicationManager::InitialiseApplication()
 {
 	windowManager.InitialiseWindow();
 	inputManager.InitialiseInputHandling(windowManager.GetWindowPointer());
+	shaderManager.LoadAllShaders();
 
 	function<void(int, const char*)> errorCallback = bind(&ApplicationManager::ErrorCallback, this, _1, _2);
 	typedef void(func)(int, const char*);
