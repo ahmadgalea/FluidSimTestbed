@@ -31,5 +31,7 @@ public:
 
 	void LoadAllShaders();
 
+	ShaderProgram* GetProgramFromName(const string& programName);
 	void BindProgramFromName(const string& programName);
+
 };

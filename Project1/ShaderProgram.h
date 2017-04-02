@@ -22,4 +22,6 @@ public:
 	void LinkProgram();
 
 	void Bind();
+
+	GLint GetAttributeLocation(const string& name) const;
 };

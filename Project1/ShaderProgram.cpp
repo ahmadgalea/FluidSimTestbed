@@ -62,7 +62,8 @@ void ShaderProgram::LinkProgram()
 	if (linkshader_success == 0) {
 		GLchar ErrorLog[1024];
 		glGetProgramInfoLog(programID, sizeof(ErrorLog), NULL, ErrorLog);
-		fprintf(stderr, "Error linking shader program: '%s'\n", ErrorLog);
+		cout << "Error linking shader program: " << programName << endl;
+		fprintf(stderr, "'%s'\n", ErrorLog);
 	};
 
 }
@@ -70,6 +71,11 @@ void ShaderProgram::LinkProgram()
 void ShaderProgram::Bind()
 {
 	glUseProgram(programID);
+}
+
+GLint ShaderProgram::GetAttributeLocation(const string& name) const
+{
+	return glGetAttribLocation(programID, name.c_str());
 }
 
 ShaderProgram::~ShaderProgram()

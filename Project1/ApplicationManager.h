@@ -4,6 +4,8 @@
 #include "InputManager.h"
 #include "ShaderManager.h"
 
+#include "PointBatch.h"
+
 class ApplicationManager
 {
 private:
@@ -11,6 +13,8 @@ private:
 	WindowManager windowManager;
 	InputManager inputManager;
 	ShaderManager shaderManager;
+
+	PointBatch points;
 
 	void InitialiseApplication();
 

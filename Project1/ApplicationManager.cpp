@@ -16,11 +16,13 @@ ApplicationManager::~ApplicationManager()
 
 void ApplicationManager::InitialiseApplication()
 {
+	SetErrorCallback();
+
 	windowManager.InitialiseWindow();
 	inputManager.InitialiseInputHandling(windowManager.GetWindowPointer());
 	shaderManager.LoadAllShaders();
 
-	SetErrorCallback();
+	points.AddPoint(vec3(0.0, 0.0, 0.0), 3.0, vec3(1.0, 1.0, 1.0));
 }
 
 void ApplicationManager::ExecuteApplication()
@@ -31,7 +33,7 @@ void ApplicationManager::ExecuteApplication()
 
 void ApplicationManager::ExecuteApplicationStages()
 {
-
+	points.Render(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
 }
 
 

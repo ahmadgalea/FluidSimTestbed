@@ -30,6 +30,7 @@
     <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="Vector3D.cpp" />
+    <ClCompile Include="VertexManagement.cpp" />
     <ClCompile Include="WindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -38,11 +39,13 @@
     <ClInclude Include="GlobalIOUtilities.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="PointBatch.h" />
+    <ClInclude Include="PositionBundle.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="Vector3D.h" />
+    <ClInclude Include="VertexManagement.h" />
     <ClInclude Include="WindowManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

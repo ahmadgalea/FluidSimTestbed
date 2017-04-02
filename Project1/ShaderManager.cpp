@@ -101,6 +101,20 @@ void ShaderManager::LoadAllShaders()
 	LoadShaderProgram("SimpleVertex", "SimpleFragment");
 }
 
+ShaderProgram* ShaderManager::GetProgramFromName(const string& programName)
+{
+	map<string, ShaderProgram*>::iterator programIterator = shaderPrograms.find(programName);
+	if (programIterator != shaderPrograms.end())
+	{
+		return programIterator->second;
+	}
+	else
+	{
+		cout << "Error: Shader program " << programName << " not found in list of compiled programs." << endl;
+		return nullptr;
+	}
+}
+
 void ShaderManager::BindProgramFromName(const string& programName)
 {
 	map<string, ShaderProgram*>::iterator programIterator = shaderPrograms.find(programName);

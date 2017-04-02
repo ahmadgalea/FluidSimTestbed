@@ -39,7 +39,7 @@ Shader::Shader(ShaderType shaderType, const string& shaderName) : type(shaderTyp
 		GLchar infolog_vertex[1024];
 		glGetShaderInfoLog(shaderID, sizeof(infolog_vertex), NULL, infolog_vertex);
 		cout << "Error compiling shader: " << name << endl;
-		fprintf(stderr, "Error compiling shader type %d: '%s'\n", GL_VERTEX_SHADER, infolog_vertex);
+		fprintf(stderr, "%d: '%s'\n", GL_VERTEX_SHADER, infolog_vertex);
 	}
 }
 

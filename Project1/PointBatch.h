@@ -1,5 +1,8 @@
 #pragma once
 
+#include "ShaderProgram.h"
+#include "PositionBundle.h"
+
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
@@ -9,15 +12,22 @@
 using namespace glm;
 using namespace std;
 
-class PosBundle
-{
-	vec3 position;
-	float size;
-	PosBundle(vec3 pos, float size1) : position(pos), size(size1) {}
-};
-
 class PointBatch
 {
 public:
-	vector<PosBundle> positions
+	vector<PositionBundle> positions;
+	vector<vec3> colours;
+private:
+	GLuint VAOHandle;
+	GLuint vertexBufferHandle;
+
+public:
+	PointBatch();
+	~PointBatch();
+
+	void AddPoint(const vec3& position, const float& size, const vec3& colour);
+	void Compile(ShaderProgram* shaderProgram);
+
+	void Render(ShaderProgram* shaderProgram);
+	void RenderBatch(ShaderProgram* shaderProgram, int count);
 };

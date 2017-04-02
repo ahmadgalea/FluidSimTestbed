@@ -45,6 +45,9 @@
     <ClCompile Include="Vector2D.cpp">
       <Filter>FluidSimTestbed\ApplicationCore</Filter>
     </ClCompile>
+    <ClCompile Include="VertexManagement.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApplicationManager.h">
@@ -78,6 +81,12 @@
       <Filter>FluidSimTestbed\ApplicationCore</Filter>
     </ClInclude>
     <ClInclude Include="Vector2D.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexManagement.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionBundle.h">
       <Filter>FluidSimTestbed\ApplicationCore</Filter>
     </ClInclude>
   </ItemGroup>
