@@ -48,6 +48,18 @@
     <ClCompile Include="VertexManagement.cpp">
       <Filter>FluidSimTestbed\ApplicationCore</Filter>
     </ClCompile>
+    <ClCompile Include="LineBatch.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleBatch.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApplicationManager.h">
@@ -87,6 +99,21 @@
       <Filter>FluidSimTestbed\ApplicationCore</Filter>
     </ClInclude>
     <ClInclude Include="PositionBundle.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertices.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="LineBatch.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleBatch.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
       <Filter>FluidSimTestbed\ApplicationCore</Filter>
     </ClInclude>
   </ItemGroup>

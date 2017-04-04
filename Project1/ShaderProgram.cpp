@@ -5,6 +5,8 @@ ShaderProgram::ShaderProgram(Shader* vertexShader, Shader* fragmentShader) : ver
 {
 	programName = vertexShader->name + fragmentShader->name;
 
+	programID = glCreateProgram();
+
 	glAttachShader(programID, vertexShader->shaderID);
 	glAttachShader(programID, fragmentShader->shaderID);
 
@@ -20,13 +22,15 @@ ShaderProgram::ShaderProgram(Shader* vertexShader, Shader* fragmentShader, Shade
 {
 	programName = vertexShader->name + fragmentShader->name + geometryShader->name;
 
+	programID = glCreateProgram();
+
 	glAttachShader(programID, vertexShader->shaderID);
 	glAttachShader(programID, fragmentShader->shaderID);
 	glAttachShader(programID, geometryShader->shaderID);
 
-	glValidateProgram(programID);
-
 	LinkProgram();
+
+	glValidateProgram(programID);
 
 	glDetachShader(programID, vertexShader->shaderID);
 	glDetachShader(programID, fragmentShader->shaderID);
@@ -37,14 +41,16 @@ ShaderProgram::ShaderProgram(Shader* vertexShader, Shader* fragmentShader, Shade
 {
 	programName = vertexShader->name + fragmentShader->name + geometryShader->name + computeShader->name;
 
+	programID = glCreateProgram();
+
 	glAttachShader(programID, vertexShader->shaderID);
 	glAttachShader(programID, fragmentShader->shaderID);
 	glAttachShader(programID, geometryShader->shaderID);
 	glAttachShader(programID, computeShader->shaderID);
 
-	glValidateProgram(programID);
-
 	LinkProgram();
+
+	glValidateProgram(programID);
 
 	glDetachShader(programID, vertexShader->shaderID);
 	glDetachShader(programID, fragmentShader->shaderID);

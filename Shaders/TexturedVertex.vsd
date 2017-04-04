@@ -1,0 +1,15 @@
+#version 440
+
+in vec3 position;
+in vec3 colour;
+in vec3 UV;
+
+out vec4 vertColour;
+out vec3 vertUV
+
+void main() 
+{
+  gl_Position = vec4(position, 1.0);
+  vertColour = vec4(colour,1.0);
+  vertUV = UV;
+}

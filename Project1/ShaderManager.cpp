@@ -128,6 +128,8 @@ void ShaderManager::BindProgramFromName(const string& programName)
 	}
 }
 
+
+
 ShaderManager::~ShaderManager()
 {
 	for (auto vertexShader : vertexShaders)

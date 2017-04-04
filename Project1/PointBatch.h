@@ -19,7 +19,8 @@ public:
 	vector<vec3> colours;
 private:
 	GLuint VAOHandle;
-	GLuint vertexBufferHandle;
+	GLuint vertexBufferHandle = -1;
+	GLuint colourBufferHandle = -1;
 
 public:
 	PointBatch();

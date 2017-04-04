@@ -66,7 +66,7 @@ void WindowManager::CreateWindow()
 
 	glfwWindowHint(GLFW_SAMPLES, antiAliasing); //Set antialiasing
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); //Specifies to use GLFW v3.3
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
 
 	window = glfwCreateWindow(windowWidth, windowHeight, windowName.c_str(), NULL, NULL);
 

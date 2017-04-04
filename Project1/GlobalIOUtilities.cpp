@@ -19,6 +19,7 @@ string LoadFileToString(string filename)
 			string line;
 			getline(file, line);
 			fileContent << line;
+			fileContent << endl;
 		}
 	}
 	else

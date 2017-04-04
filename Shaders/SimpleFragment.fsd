@@ -1,16 +1,9 @@
-// shadertype = glsl
+#version 440
 
-#version 330
-#extension GL_ARB_shading_language_420pack : require
-
-in vec4 vert_Colour;
-
-out vec4 out_Colour;
-
+in vec4 vertColour;
 
 void main() 
 {
-  
-  out_Colour = vert_Colour;
-  
+  gl_FragColor = vertColour;
+
 }

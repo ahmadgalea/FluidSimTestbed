@@ -1,0 +1,11 @@
+#version 440
+
+in vec4 vertColour;
+in vec2 vertUV;
+
+uniform sampler2D texture;
+
+void main() 
+{
+  gl_FragColor = texture2D(texture, vertUV);
+}

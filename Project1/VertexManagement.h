@@ -15,5 +15,5 @@ namespace VertexManagement
 	void LoadVertexData(GLuint& vertexBufferHandle, const GLuint& bufferSize, const void* pointerToVertices, const GLenum& vertexDrawMode);
 	void CreateVertexArrayObject(GLuint& vertexArrayHandle);
 	void CreateIndexArrays(vector<GLuint>& indexBufferHandles, vector<size_t> indexBufferSizes, vector<const void*> pointersToIndices);
-	void BindToAttributes(ShaderProgram* shaderProgram);
+	void BindToAttribute(ShaderProgram* shaderProgram, const string& name, int size);
 }

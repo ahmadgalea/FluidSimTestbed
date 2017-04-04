@@ -1,3 +1,6 @@
-﻿  Shader.cpp
+﻿  ShaderManager.cpp
+c:\github\fluidsimtestbed\project1\shadermanager.cpp(45): warning C4715: 'ShaderManager::LoadShaderProgram': not all control paths return a value
+c:\github\fluidsimtestbed\project1\shadermanager.cpp(67): warning C4715: 'ShaderManager::LoadShaderProgram': not all control paths return a value
+c:\github\fluidsimtestbed\project1\shadermanager.cpp(94): warning C4715: 'ShaderManager::LoadShaderProgram': not all control paths return a value
   Project1.vcxproj -> C:\GitHub\FluidSimTestbed\Debug\Project1.exe
   Project1.vcxproj -> C:\GitHub\FluidSimTestbed\Debug\Project1.pdb (Partial PDB)

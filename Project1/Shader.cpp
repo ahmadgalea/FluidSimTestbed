@@ -25,9 +25,10 @@ Shader::Shader(ShaderType shaderType, const string& shaderName) : type(shaderTyp
 		break;
 	}
 
-
-	const char* shaderContentChar = LoadFileToString(filename).c_str();
-	glShaderSource(shaderID, 1, &shaderContentChar, 0);
+	string shaderContent = LoadFileToString(filename);
+	const char* shaderContentChar = shaderContent.c_str();
+	
+	glShaderSource(shaderID, 1, &shaderContentChar, nullptr);
 
 	glCompileShader(shaderID);
 

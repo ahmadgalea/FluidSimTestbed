@@ -16,13 +16,31 @@ ApplicationManager::~ApplicationManager()
 
 void ApplicationManager::InitialiseApplication()
 {
-	SetErrorCallback();
-
 	windowManager.InitialiseWindow();
 	inputManager.InitialiseInputHandling(windowManager.GetWindowPointer());
-	shaderManager.LoadAllShaders();
 
-	points.AddPoint(vec3(0.0, 0.0, 0.0), 3.0, vec3(1.0, 1.0, 1.0));
+	SetErrorCallback();
+
+	shaderManager.LoadAllShaders();
+	textureManager.LoadAllTextures();
+
+	points.AddPoint(vec3(-0.5, -0.5, 0.0), 0, vec3(1.0, 1.0, 1.0));
+	points.AddPoint(vec3(-0.5, 0.5, 0.0), 0, vec3(1.0, 1.0, 1.0));
+	points.AddPoint(vec3(0.5, -0.5, 0.0), 0, vec3(1.0, 1.0, 1.0)); 
+	points.AddPoint(vec3(0.5, 0.5, 0.0), 0, vec3(1.0, 1.0, 1.0));
+
+	points.Compile(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
+
+	lines.AddLine(vec3(-0.5, -0.5, 0.0), vec3(-0.5, 0.5, 0.0), vec3(0.0, 1.0, 0.0), vec3(0.0, 1.0, 0.0));
+	lines.AddLine(vec3(-0.5, -0.5, 0.0), vec3(0.5, -0.5, 0.0), vec3(0.0, 1.0, 0.0), vec3(0.0, 1.0, 0.0));
+	lines.AddLine(vec3(0.5, 0.5, 0.0), vec3(-0.5, 0.5, 0.0), vec3(0.0, 1.0, 0.0), vec3(0.0, 1.0, 0.0));
+	lines.AddLine(vec3(0.5, 0.5, 0.0), vec3(0.5, -0.5, 0.0), vec3(0.0, 1.0, 0.0), vec3(0.0, 1.0, 0.0));
+
+	lines.Compile(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
+
+	triangles.AddTrianglePositions(vec3(-0.2, -0.2, 0.0), vec3(0.2, -0.2, 0.0), vec3(0.0, 0.2, 0.0));
+	triangles.AddTriangleColour(vec3(0.0, 0.0, 1.0));
+	triangles.Compile(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
 }
 
 void ApplicationManager::ExecuteApplication()
@@ -34,6 +52,8 @@ void ApplicationManager::ExecuteApplication()
 void ApplicationManager::ExecuteApplicationStages()
 {
 	points.Render(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
+	lines.Render(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
+	triangles.Render(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
 }
 
 
