@@ -17,6 +17,9 @@ private:
 	GLuint textureID;
 
 public:
+	GLuint textureUnit;
+
+public:
 	Texture() : width(0), height(0) {}
 	Texture(const string& fileName, GLenum imageFormat = SOIL_LOAD_RGBA);
 	~Texture();

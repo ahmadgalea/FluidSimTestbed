@@ -5,11 +5,21 @@ void MeshShaderInterface::SetShaderProgram(ShaderProgram* program)
 	shaderProgram = program;
 }
 
+void MeshShaderInterface::SetTexture(Texture* tex)
+{
+	texture = tex;
+}
+
 void MeshShaderInterface::SetShaderMatrixPointers(Camera* camera)
 {
 	PVMatrix = camera->GetPVMatrix();
 	UpdatePVMMatrix();
 	shaderProgram->matrixPointers.insert(pair<string, mat4*>("ProjectionViewModel", &PVMMatrix));
+}
+
+void MeshShaderInterface::SetShaderTexturePointers()
+{
+	//shaderProgram->matrixPointers.insert(pair<string, Texture*>("blue_car", texture));
 }
 
 void MeshShaderInterface::UpdateInterface()

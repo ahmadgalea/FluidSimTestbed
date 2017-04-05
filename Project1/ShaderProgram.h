@@ -2,6 +2,7 @@
 
 #include "Shader.h"
 #include "Camera.h"
+#include "Texture.h"
 
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
@@ -25,6 +26,7 @@ public:
 	string programName;
 
 	map<string, mat4*> matrixPointers;
+	map<string, Texture*> texturePointers;
 
 public:
 	ShaderProgram(Shader* vertexShader, Shader* fragmentShader);
@@ -41,7 +43,8 @@ public:
 
 	bool SetVertexAttribute(const string& name, int size);
 	bool SetMat4FUniform(const string& name, const mat4* matrixPointer);
-	bool SetMat1IUniform(const string& name, int uniformValue);
+	bool SetScalIUniform(const string& name, int uniformValue);
 
 	void UpdateShaderMatrices();
+	void UpdateShaderTextures();
 };

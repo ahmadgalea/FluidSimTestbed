@@ -11,8 +11,10 @@ class TextureManager
 {
 private:
 	map<string, Texture*> textures;
+	GLuint noOfTextures = 0;
 public:
 	void LoadTextureFromFile(const string& name);
 	void LoadAllTextures();
-	void BindTextureFromName(const string& name, int textureUnit = 0);
+	Texture* GetTextureFromName(const string& name);
+	void BindTextureFromName(const string& name);
 };

@@ -1,4 +1,5 @@
 #include "ShaderProgram.h"
+
 #include <iostream>
 
 ShaderProgram::ShaderProgram(Shader* vertexShader, Shader* fragmentShader) : vertexShader(vertexShader), fragmentShader(fragmentShader)
@@ -128,13 +129,15 @@ bool ShaderProgram::SetMat4FUniform(const string& name, const mat4* matrixPointe
 	return true;
 }
 
-bool ShaderProgram::SetMat1IUniform(const string& name, int uniformValue)
+bool ShaderProgram::SetScalIUniform(const string& name, int uniformValue)
 {
+	GLenum ErrorCheckValue = glGetError();
+
 	int uniformLocation = GetUniformLocation(name);
 
 	glUniform1i(uniformLocation, uniformValue);
 
-	GLenum ErrorCheckValue = glGetError();
+	ErrorCheckValue = glGetError();
 	if (ErrorCheckValue != GL_NO_ERROR)
 	{
 		cout << "ERROR: Could not assign uniform " << name << endl;
@@ -155,6 +158,17 @@ void ShaderProgram::UpdateShaderMatrices()
 		SetMat4FUniform(pointer.first, pointer.second);
 	}
 }
+
+void ShaderProgram::UpdateShaderTextures()
+{
+	Bind();
+
+	for (pair<string, Texture*> pointer : texturePointers)
+	{
+		SetScalIUniform(pointer.first, pointer.second->textureUnit);
+	}
+}
+
 
 
 ShaderProgram::~ShaderProgram()
