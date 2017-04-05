@@ -1,5 +1,6 @@
 
 #include <functional>
+#include <iostream>
 
 #include "ApplicationManager.h"
 
@@ -19,28 +20,26 @@ void ApplicationManager::InitialiseApplication()
 	windowManager.InitialiseWindow();
 	inputManager.InitialiseInputHandling(windowManager.GetWindowPointer());
 
+	camera = Camera(&windowManager, vec3(0.0f, 0.0f, 5.0f), vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f), radians(45.0f), 0.0f, 100.0f);
+
 	SetErrorCallback();
 
 	shaderManager.LoadAllShaders();
 	textureManager.LoadAllTextures();
 
-	points.AddPoint(vec3(-0.5, -0.5, 0.0), 0, vec3(1.0, 1.0, 1.0));
-	points.AddPoint(vec3(-0.5, 0.5, 0.0), 0, vec3(1.0, 1.0, 1.0));
-	points.AddPoint(vec3(0.5, -0.5, 0.0), 0, vec3(1.0, 1.0, 1.0)); 
-	points.AddPoint(vec3(0.5, 0.5, 0.0), 0, vec3(1.0, 1.0, 1.0));
+	gridMesh = GridMesh(vec3(1.0f, 1.0f, 1.0f), 6.0f, vec3(0.0f, 1.0f, 0.0f));
+	gridMesh.SetShaderProgram(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
+	gridMesh.SetShaderMatrixPointers(&camera);
 
-	points.Compile(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
-
-	lines.AddLine(vec3(-0.5, -0.5, 0.0), vec3(-0.5, 0.5, 0.0), vec3(0.0, 1.0, 0.0), vec3(0.0, 1.0, 0.0));
-	lines.AddLine(vec3(-0.5, -0.5, 0.0), vec3(0.5, -0.5, 0.0), vec3(0.0, 1.0, 0.0), vec3(0.0, 1.0, 0.0));
-	lines.AddLine(vec3(0.5, 0.5, 0.0), vec3(-0.5, 0.5, 0.0), vec3(0.0, 1.0, 0.0), vec3(0.0, 1.0, 0.0));
-	lines.AddLine(vec3(0.5, 0.5, 0.0), vec3(0.5, -0.5, 0.0), vec3(0.0, 1.0, 0.0), vec3(0.0, 1.0, 0.0));
-
-	lines.Compile(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
-
-	triangles.AddTrianglePositions(vec3(-0.2, -0.2, 0.0), vec3(0.2, -0.2, 0.0), vec3(0.0, 0.2, 0.0));
-	triangles.AddTriangleColour(vec3(0.0, 0.0, 1.0));
-	triangles.Compile(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
+	gridMesh.AddVertex(vec3(-0.5, -0.5, 0.0));
+	gridMesh.AddVertex(vec3(0.5, -0.5, 0.0));
+	gridMesh.AddVertex(vec3(0.5, 0.5, 0.0));
+	gridMesh.AddVertex(vec3(-0.5, 0.5, 0.0));
+	gridMesh.AddVertex(vec3(-0.5, -0.5, 0.0));
+	
+	//triangles.AddTrianglePositions(vec3(-0.2, -0.2, 0.0), vec3(0.2, -0.2, 0.0), vec3(0.0, 0.2, 0.0));
+	//triangles.AddTriangleColour(vec3(0.0, 0.0, 1.0));
+	//triangles.Compile(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
 }
 
 void ApplicationManager::ExecuteApplication()
@@ -51,9 +50,9 @@ void ApplicationManager::ExecuteApplication()
 
 void ApplicationManager::ExecuteApplicationStages()
 {
-	points.Render(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
-	lines.Render(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
-	triangles.Render(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
+	gridMesh.Update();
+	gridMesh.Render();
+	//triangles.Render(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
 }
 
 

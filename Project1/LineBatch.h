@@ -16,7 +16,7 @@ public:
 	vector<vec3> positions;
 	vector<vec3> colours;
 private:
-	GLuint VAOHandle;
+	GLuint VAOHandle = -1;
 	GLuint vertexBufferHandle = -1;;
 	GLuint colourBufferHandle = -1;
 
@@ -27,6 +27,7 @@ public:
 	~LineBatch();
 
 	void AddLine(const vec3& position1, const vec3& position2, const vec3& colour1, const vec3& colour2);
+	void AddLine(const vec3& position1, const vec3& position2, const vec3& colour);
 	void Compile(ShaderProgram* shaderProgram);
 
 	void Render(ShaderProgram* shaderProgram);

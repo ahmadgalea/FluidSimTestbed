@@ -5,8 +5,9 @@
 #include "ShaderManager.h"
 #include "TextureManager.h"
 
-#include "PointBatch.h"
-#include "LineBatch.h"
+#include "Camera.h"
+
+#include "GridMesh.h"
 #include "TriangleBatch.h"
 
 class ApplicationManager
@@ -18,9 +19,10 @@ private:
 	ShaderManager shaderManager;
 	TextureManager textureManager;
 
-	PointBatch points;
-	LineBatch lines;
-	TriangleBatch triangles;
+	Camera camera;
+
+	GridMesh gridMesh;
+	//TriangleBatch triangles;
 
 	void InitialiseApplication();
 

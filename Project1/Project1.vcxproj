@@ -23,8 +23,10 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="EntryPoint.cpp" />
     <ClCompile Include="GlobalIOUtilities.cpp" />
+    <ClCompile Include="GridMesh.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="LineBatch.cpp" />
+    <ClCompile Include="MeshShaderInterface.cpp" />
     <ClCompile Include="PointBatch.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderManager.cpp" />
@@ -41,10 +43,12 @@
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="GlobalIOUtilities.h" />
+    <ClInclude Include="GridMesh.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="LineBatch.h" />
     <ClInclude Include="PointBatch.h" />
     <ClInclude Include="PositionBundle.h" />
+    <ClInclude Include="MeshShaderInterface.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="ShaderProgram.h" />

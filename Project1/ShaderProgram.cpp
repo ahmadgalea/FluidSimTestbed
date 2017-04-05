@@ -84,6 +84,79 @@ GLint ShaderProgram::GetAttributeLocation(const string& name) const
 	return glGetAttribLocation(programID, name.c_str());
 }
 
+GLint ShaderProgram::GetUniformLocation(const string& name) const
+{
+	return glGetUniformLocation(programID, name.c_str());
+}
+
+bool ShaderProgram::SetVertexAttribute(const string& name, int size)
+{
+	GLenum ErrorCheckValue = glGetError();
+
+	int attribIndex = GetAttributeLocation(name);
+
+	glVertexAttribPointer(attribIndex, size, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(attribIndex);
+
+	ErrorCheckValue = glGetError();
+	if (ErrorCheckValue != GL_NO_ERROR)
+	{
+		cout << "ERROR: Could not assign attribute " << name << endl;
+		fprintf(stderr, "%s \n", gluErrorString(ErrorCheckValue));
+		return false;
+	}
+
+	return true;
+}
+
+bool ShaderProgram::SetMat4FUniform(const string& name, const mat4* matrixPointer)
+{
+	GLenum ErrorCheckValue = glGetError();
+
+	int uniformLocation = GetUniformLocation(name);
+	
+	glUniformMatrix4fv(uniformLocation, 1, GL_FALSE, value_ptr(*(mat4*)matrixPointer));
+
+	ErrorCheckValue = glGetError();
+	if (ErrorCheckValue != GL_NO_ERROR)
+	{
+		cout << "ERROR: Could not assign uniform " << name << endl;
+		fprintf(stderr, "%s \n", gluErrorString(ErrorCheckValue));
+		return false;
+	}
+
+	return true;
+}
+
+bool ShaderProgram::SetMat1IUniform(const string& name, int uniformValue)
+{
+	int uniformLocation = GetUniformLocation(name);
+
+	glUniform1i(uniformLocation, uniformValue);
+
+	GLenum ErrorCheckValue = glGetError();
+	if (ErrorCheckValue != GL_NO_ERROR)
+	{
+		cout << "ERROR: Could not assign uniform " << name << endl;
+		fprintf(stderr, "%s \n", gluErrorString(ErrorCheckValue));
+		return false;
+	}
+
+	return true;
+}
+
+
+void ShaderProgram::UpdateShaderMatrices()
+{
+	Bind();
+
+	for (pair<string, mat4*> pointer : matrixPointers)
+	{
+		SetMat4FUniform(pointer.first, pointer.second);
+	}
+}
+
+
 ShaderProgram::~ShaderProgram()
 {
 	GLenum ErrorCheckValue = glGetError();

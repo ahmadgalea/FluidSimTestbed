@@ -8,7 +8,7 @@ using namespace std;
 
 TriangleBatch::TriangleBatch()
 {
-
+	
 }
 
 TriangleBatch::~TriangleBatch()
@@ -43,14 +43,21 @@ void TriangleBatch::AddTriangleUVs(const vec3& UV1, const vec3& UV2)
 
 void TriangleBatch::Compile(ShaderProgram* shaderProgram)
 {
-	CreateVertexArrayObject(VAOHandle);
+	if (VAOHandle == -1)
+	{
+		CreateVertexArrayObject(VAOHandle);
+	}
+	else
+	{
+		glBindVertexArray(VAOHandle);
+	}
 
 	LoadVertexData(vertexBufferHandle, positions.size() * sizeof(vec3), positions.data(), GL_STATIC_DRAW);
-	BindToAttribute(shaderProgram, "position", 3);
+	shaderProgram->SetVertexAttribute("position", 3);
 	LoadVertexData(colourBufferHandle, colours.size() * sizeof(vec3), colours.data(), GL_STATIC_DRAW);
-	BindToAttribute(shaderProgram, "colour", 3);
+	shaderProgram->SetVertexAttribute("colour", 3);
 	LoadVertexData(UVBufferHandle, UVs.size() * sizeof(vec3), UVs.data(), GL_STATIC_DRAW);
-	BindToAttribute(shaderProgram, "UV", 2);
+	shaderProgram->SetVertexAttribute("UV", 2);
 }
 
 void TriangleBatch::Render(ShaderProgram* shaderProgram)

@@ -3,11 +3,12 @@
 in vec3 position;
 in vec3 colour;
 
+uniform mat4 ProjectionViewModel;
+
 out vec4 vertColour;
-//out vec3 vertTexture
 
 void main() 
 {
-  gl_Position = vec4(position, 1.0);
+  gl_Position = ProjectionViewModel * vec4(position, 1.0);
   vertColour = vec4(colour,1.0);
 }

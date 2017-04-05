@@ -60,6 +60,7 @@ void VertexManagement::CreateIndexArrays(vector<GLuint>& indexBufferHandles, vec
 	}
 }
 
+// Has been factored into ShaderProgram.h
 void VertexManagement::BindToAttribute(ShaderProgram* shaderProgram, const string& name, int size)
 {
 

@@ -16,7 +16,7 @@ public:
 	vector<vec3> colours;
 	vector<vec2> UVs;
 private:
-	GLuint VAOHandle;
+	GLuint VAOHandle = -1;
 	GLuint vertexBufferHandle = -1;;
 	GLuint colourBufferHandle = -1;
 	GLuint UVBufferHandle = -1;

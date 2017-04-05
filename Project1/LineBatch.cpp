@@ -8,7 +8,7 @@ using namespace std;
 
 LineBatch::LineBatch()
 {
-
+	
 }
 
 LineBatch::~LineBatch()
@@ -25,14 +25,30 @@ void LineBatch::AddLine(const vec3& position1, const vec3& position2, const vec3
 	lineCount++;
 }
 
+void LineBatch::AddLine(const vec3& position1, const vec3& position2, const vec3& colour)
+{
+	positions.push_back(position1);
+	positions.push_back(position2);
+	colours.push_back(colour);
+	colours.push_back(colour);
+	lineCount++;
+}
+
 void LineBatch::Compile(ShaderProgram* shaderProgram)
 {
-	CreateVertexArrayObject(VAOHandle);
+	if (VAOHandle == -1)
+	{
+		CreateVertexArrayObject(VAOHandle);
+	}
+	else
+	{
+		glBindVertexArray(VAOHandle);
+	}
 
 	LoadVertexData(vertexBufferHandle, positions.size() * sizeof(vec3), positions.data(), GL_STATIC_DRAW);
-	BindToAttribute(shaderProgram, "position", 3);
+	shaderProgram->SetVertexAttribute("position", 3);
 	LoadVertexData(colourBufferHandle, colours.size() * sizeof(vec3), colours.data(), GL_STATIC_DRAW);
-	BindToAttribute(shaderProgram, "colour", 3);
+	shaderProgram->SetVertexAttribute("colour", 3);
 }
 
 void LineBatch::Render(ShaderProgram* shaderProgram)
@@ -40,11 +56,8 @@ void LineBatch::Render(ShaderProgram* shaderProgram)
 	shaderProgram->Bind();
 	glBindVertexArray(VAOHandle);
 
-	glEnable(GL_POINT_SMOOTH);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-	glPointSize(6.0);
 
 	glDrawArrays(GL_LINES, 0, positions.size());
 
@@ -56,8 +69,6 @@ void LineBatch::RenderBatch(ShaderProgram* shaderProgram, int count)
 {
 	shaderProgram->Bind();
 	glBindVertexArray(VAOHandle);
-
-	glPointSize(6.0);
 
 	glDrawArraysInstanced(GL_LINES, 0, positions.size(), count);
 

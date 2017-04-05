@@ -7,6 +7,18 @@
     <Filter Include="FluidSimTestbed\ApplicationCore">
       <UniqueIdentifier>{7cc98b37-06f5-4535-a9a3-4effad080bd9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FluidSimTestbed\ApplicationCore\Geometry">
+      <UniqueIdentifier>{1effedac-e0af-4029-91a3-fb3246b431e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FluidSimTestbed\ApplicationCore\Utilities">
+      <UniqueIdentifier>{d4875e35-29da-4842-87fd-3e0fd8069d70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FluidSimTestbed\ApplicationCore\Maths">
+      <UniqueIdentifier>{d992d0d4-ca4b-4498-af5e-6a3bca5e96d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FluidSimTestbed\ApplicationCore\Rendering">
+      <UniqueIdentifier>{4cb75d25-4910-44f1-ab0e-f44ed11d4a5e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EntryPoint.cpp">
@@ -21,44 +33,50 @@
     <ClCompile Include="InputManager.cpp">
       <Filter>FluidSimTestbed\ApplicationCore</Filter>
     </ClCompile>
-    <ClCompile Include="ShaderManager.cpp">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClCompile>
-    <ClCompile Include="ShaderProgram.cpp">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClCompile>
-    <ClCompile Include="GlobalIOUtilities.cpp">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>FluidSimTestbed\ApplicationCore</Filter>
     </ClCompile>
     <ClCompile Include="PointBatch.cpp">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector3D.cpp">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector2D.cpp">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClCompile>
-    <ClCompile Include="VertexManagement.cpp">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+      <Filter>FluidSimTestbed\ApplicationCore\Geometry</Filter>
     </ClCompile>
     <ClCompile Include="LineBatch.cpp">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+      <Filter>FluidSimTestbed\ApplicationCore\Geometry</Filter>
     </ClCompile>
     <ClCompile Include="TriangleBatch.cpp">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+      <Filter>FluidSimTestbed\ApplicationCore\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexManagement.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalIOUtilities.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2D.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3D.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore\Maths</Filter>
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+      <Filter>FluidSimTestbed\ApplicationCore\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+      <Filter>FluidSimTestbed\ApplicationCore\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderProgram.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderManager.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="GridMesh.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshShaderInterface.cpp">
+      <Filter>FluidSimTestbed\ApplicationCore\Geometry</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -71,50 +89,56 @@
     <ClInclude Include="InputManager.h">
       <Filter>FluidSimTestbed\ApplicationCore</Filter>
     </ClInclude>
-    <ClInclude Include="ShaderManager.h">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClInclude>
-    <ClInclude Include="ShaderProgram.h">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClInclude>
-    <ClInclude Include="Shader.h">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClInclude>
-    <ClInclude Include="GlobalIOUtilities.h">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>FluidSimTestbed\ApplicationCore</Filter>
     </ClInclude>
     <ClInclude Include="PointBatch.h">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector3D.h">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2D.h">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClInclude>
-    <ClInclude Include="VertexManagement.h">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClInclude>
-    <ClInclude Include="PositionBundle.h">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
-    </ClInclude>
-    <ClInclude Include="Vertices.h">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+      <Filter>FluidSimTestbed\ApplicationCore\Geometry</Filter>
     </ClInclude>
     <ClInclude Include="LineBatch.h">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+      <Filter>FluidSimTestbed\ApplicationCore\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionBundle.h">
+      <Filter>FluidSimTestbed\ApplicationCore\Geometry</Filter>
     </ClInclude>
     <ClInclude Include="TriangleBatch.h">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+      <Filter>FluidSimTestbed\ApplicationCore\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertices.h">
+      <Filter>FluidSimTestbed\ApplicationCore\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexManagement.h">
+      <Filter>FluidSimTestbed\ApplicationCore\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalIOUtilities.h">
+      <Filter>FluidSimTestbed\ApplicationCore\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.h">
+      <Filter>FluidSimTestbed\ApplicationCore\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3D.h">
+      <Filter>FluidSimTestbed\ApplicationCore\Maths</Filter>
     </ClInclude>
     <ClInclude Include="TextureManager.h">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+      <Filter>FluidSimTestbed\ApplicationCore\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
-      <Filter>FluidSimTestbed\ApplicationCore</Filter>
+      <Filter>FluidSimTestbed\ApplicationCore\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderProgram.h">
+      <Filter>FluidSimTestbed\ApplicationCore\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderManager.h">
+      <Filter>FluidSimTestbed\ApplicationCore\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>FluidSimTestbed\ApplicationCore\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="GridMesh.h">
+      <Filter>FluidSimTestbed\ApplicationCore\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshShaderInterface.h">
+      <Filter>FluidSimTestbed\ApplicationCore\Geometry</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

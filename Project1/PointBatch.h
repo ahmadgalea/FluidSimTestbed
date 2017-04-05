@@ -18,7 +18,7 @@ public:
 	vector<PositionBundle> positions;
 	vector<vec3> colours;
 private:
-	GLuint VAOHandle;
+	GLuint VAOHandle = -1;
 	GLuint vertexBufferHandle = -1;
 	GLuint colourBufferHandle = -1;
 

@@ -99,6 +99,7 @@ void ShaderManager::LoadAllShaders()
 	LoadFragmentShader("SimpleFragment");
 
 	LoadShaderProgram("SimpleVertex", "SimpleFragment");
+
 }
 
 ShaderProgram* ShaderManager::GetProgramFromName(const string& programName)
