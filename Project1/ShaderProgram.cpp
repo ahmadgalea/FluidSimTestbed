@@ -148,6 +148,17 @@ bool ShaderProgram::SetScalIUniform(const string& name, int uniformValue)
 	return true;
 }
 
+void ShaderProgram::AddShaderMatrix(const string& name, const mat4* matrixPointer)
+{
+	matrixPointers.insert(pair<string, mat4*>(name, (mat4*)matrixPointer));
+}
+
+void ShaderProgram::AddTexture(const string& name, Texture*texturePointer)
+{
+	texturePointers.insert(pair<string, Texture*>(name, texturePointer));
+	texturePointer->Bind();
+	UpdateShaderTextures();
+}
 
 void ShaderProgram::UpdateShaderMatrices()
 {

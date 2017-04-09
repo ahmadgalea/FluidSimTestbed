@@ -45,6 +45,9 @@ public:
 	bool SetMat4FUniform(const string& name, const mat4* matrixPointer);
 	bool SetScalIUniform(const string& name, int uniformValue);
 
+	void AddShaderMatrix(const string& name, const mat4* matrixPointer);
+	void AddTexture(const string& name, Texture* texturePointer);
+
 	void UpdateShaderMatrices();
 	void UpdateShaderTextures();
 };

@@ -14,12 +14,12 @@ void MeshShaderInterface::SetShaderMatrixPointers(Camera* camera)
 {
 	PVMatrix = camera->GetPVMatrix();
 	UpdatePVMMatrix();
-	shaderProgram->matrixPointers.insert(pair<string, mat4*>("ProjectionViewModel", &PVMMatrix));
+	shaderProgram->AddShaderMatrix("ProjectionViewModel", &PVMMatrix);
 }
 
 void MeshShaderInterface::SetShaderTexturePointers()
 {
-	//shaderProgram->matrixPointers.insert(pair<string, Texture*>("blue_car", texture));
+	//shaderProgram-AddTexture("blue_car", texture);
 }
 
 void MeshShaderInterface::UpdateInterface()
