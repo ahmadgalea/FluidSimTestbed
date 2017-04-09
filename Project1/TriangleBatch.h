@@ -30,7 +30,7 @@ public:
 	void AddTrianglePositions(const vec3& position1, const vec3& position2, const vec3& position3);
 	void AddTriangleColours(const vec3& colour1, const vec3& colour2, const vec3& colour3);
 	void AddTriangleColour(const vec3& colour);
-	void AddTriangleUVs(const vec3& UV1, const vec3& UV2);
+	void AddTriangleUVs(const vec2& UV1, const vec2& UV2, const vec2& UV3);
 	void Compile(ShaderProgram* shaderProgram);
 
 	void Render(ShaderProgram* shaderProgram);

@@ -96,9 +96,12 @@ bool ShaderManager::LoadShaderProgram(const string& vertexName, const string& fr
 void ShaderManager::LoadAllShaders()
 {
 	LoadVertexShader("SimpleVertex");
+	LoadVertexShader("TexturedVertex");
 	LoadFragmentShader("SimpleFragment");
+	LoadFragmentShader("TexturedFragment");
 
 	LoadShaderProgram("SimpleVertex", "SimpleFragment");
+	LoadShaderProgram("TexturedVertex", "TexturedFragment");
 
 }
 

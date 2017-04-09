@@ -22,7 +22,7 @@ private:
 	Camera camera;
 
 	GridMesh gridMesh;
-	//TriangleBatch triangles;
+	TriangleBatch triangles;
 
 	void InitialiseApplication();
 

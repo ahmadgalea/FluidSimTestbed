@@ -35,10 +35,11 @@ void TriangleBatch::AddTriangleColour(const vec3& colour)
 	colours.push_back(colour);
 	colours.push_back(colour);
 }
-void TriangleBatch::AddTriangleUVs(const vec3& UV1, const vec3& UV2)
+void TriangleBatch::AddTriangleUVs(const vec2& UV1, const vec2& UV2, const vec2& UV3)
 {
 	UVs.push_back(UV1);
 	UVs.push_back(UV2);
+	UVs.push_back(UV3);
 }
 
 void TriangleBatch::Compile(ShaderProgram* shaderProgram)
@@ -56,7 +57,7 @@ void TriangleBatch::Compile(ShaderProgram* shaderProgram)
 	shaderProgram->SetVertexAttribute("position", 3);
 	LoadVertexData(colourBufferHandle, colours.size() * sizeof(vec3), colours.data(), GL_STATIC_DRAW);
 	shaderProgram->SetVertexAttribute("colour", 3);
-	LoadVertexData(UVBufferHandle, UVs.size() * sizeof(vec3), UVs.data(), GL_STATIC_DRAW);
+	LoadVertexData(UVBufferHandle, UVs.size() * sizeof(vec2), UVs.data(), GL_STATIC_DRAW);
 	shaderProgram->SetVertexAttribute("UV", 2);
 }
 
