@@ -37,6 +37,8 @@
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="Vector3D.cpp" />
     <ClCompile Include="VertexManagement.cpp" />
+    <ClCompile Include="Vorton.cpp" />
+    <ClCompile Include="VortonSim.cpp" />
     <ClCompile Include="WindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -45,13 +47,18 @@
     <ClInclude Include="GlobalIOUtilities.h" />
     <ClInclude Include="GridMesh.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="KDTree.h" />
     <ClInclude Include="LineBatch.h" />
+    <ClInclude Include="NDimArray.h" />
+    <ClInclude Include="Optional.h" />
     <ClInclude Include="PointBatch.h" />
     <ClInclude Include="PositionBundle.h" />
     <ClInclude Include="MeshShaderInterface.h" />
+    <ClInclude Include="QuadTree.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="ShaderProgram.h" />
+    <ClInclude Include="StackArray.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="TriangleBatch.h" />
@@ -59,6 +66,8 @@
     <ClInclude Include="Vector3D.h" />
     <ClInclude Include="VertexManagement.h" />
     <ClInclude Include="Vertices.h" />
+    <ClInclude Include="Vorton.h" />
+    <ClInclude Include="VortonSim.h" />
     <ClInclude Include="WindowManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

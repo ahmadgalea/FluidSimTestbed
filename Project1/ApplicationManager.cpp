@@ -30,7 +30,7 @@ void ApplicationManager::InitialiseApplication()
 	gridMesh = GridMesh(vec3(1.0f, 1.0f, 1.0f), 6.0f, vec3(0.0f, 1.0f, 0.0f));
 	gridMesh.SetShaderProgram(shaderManager.GetProgramFromName("SimpleVertexSimpleFragment"));
 	gridMesh.SetShaderMatrixPointers(&camera);
-
+	
 	gridMesh.AddVertex(vec3(-0.5, -0.5, 0.0));
 	gridMesh.AddVertex(vec3(0.5, -0.5, 0.0));
 	gridMesh.AddVertex(vec3(0.5, 0.5, 0.0));
@@ -41,14 +41,14 @@ void ApplicationManager::InitialiseApplication()
 	shader->AddShaderMatrix("ProjectionViewModel", camera.GetPVMatrix());
 
 	Texture* texture = textureManager.GetTextureFromName("blue_car");
-	shader->AddTexture("blue_car", texture);
+	shader->AddTexture("texture", texture);
 
 	triangles.AddTrianglePositions(vec3(-0.2, -0.2, 0.0), vec3(-0.2, 0.2, 0.0), vec3(0.2, 0.2, 0.0));
-	triangles.AddTriangleColour(vec3(0.0, 0.0, 1.0));
+	triangles.AddTriangleColour(vec3(0.0, 0.0, 0.0));
 	triangles.AddTriangleUVs(vec2(0.0, 1.0), vec2(0.0, 0.0), vec2(1.0, 0.0));
 
 	triangles.AddTrianglePositions(vec3(-0.2, -0.2, 0.0), vec3(0.2, -0.2, 0.0), vec3(0.2, 0.2, 0.0));
-	triangles.AddTriangleColour(vec3(0.0, 0.0, 1.0));
+	triangles.AddTriangleColour(vec3(0.0, 0.0, 0.0));
 	triangles.AddTriangleUVs(vec2(0.0, 1.0), vec2(1.0, 1.0), vec2(1.0, 0.0));
 
 	triangles.Compile(shader);
@@ -67,7 +67,7 @@ void ApplicationManager::ExecuteApplicationStages()
 
 	shaderManager.BindProgramFromName("TexturedVertexTexturedFragment");
 	textureManager.BindTextureFromName("blue_car");
-	//shaderManager.GetProgramFromName("TexturedVertexTexturedFragment")->UpdateShaderTextures();
+	shaderManager.GetProgramFromName("TexturedVertexTexturedFragment")->UpdateShaderTextures();
 	triangles.Render(shaderManager.GetProgramFromName("TexturedVertexTexturedFragment"));
 }
 
