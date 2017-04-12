@@ -205,6 +205,14 @@ public:
 		values[GetMemoryIndex(indices)] = Optional<X>();
 	}
 
+	void ClearAll()
+	{
+		if (values != nullptr)
+		{
+			delete[] values;
+		}
+	}
+
 	void ForEach(const function<void(X)>& inputFunction)
 	{
 		for (unsigned int i = 0; i<elementCount; i++)

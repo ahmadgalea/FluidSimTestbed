@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApplicationManager.h" />
+    <ClInclude Include="BoundingBox.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="GlobalIOUtilities.h" />
     <ClInclude Include="GridMesh.h" />

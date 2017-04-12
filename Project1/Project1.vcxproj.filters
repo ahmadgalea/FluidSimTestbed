@@ -173,5 +173,8 @@
     <ClInclude Include="QuadTree.h">
       <Filter>FluidSimTestbed\Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="BoundingBox.h">
+      <Filter>FluidSimTestbed\Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
