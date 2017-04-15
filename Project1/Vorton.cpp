@@ -10,6 +10,8 @@ Vorton::Vorton(const list<Vorton*>& vortons)
 		vorticity += vorton->GetVorticity();
 
 		position += vorton->GetPosition()*fabs(vorton->GetVorticity());
+
+		weight++;
 	}
 }
 

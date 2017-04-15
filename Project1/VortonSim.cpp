@@ -23,6 +23,7 @@ void VortonSim::Initialise(const list<Vorton*>& vorts, const vector<int>& gridDi
 		vortons = vorts;
 		gridDimensions = gridDim;
 		velocityGrid.Initialise(gridDim);
+		vortonLocations.Initialise(gridDim);
 		isSetup = true;
 	}
 	else
@@ -57,9 +58,13 @@ bool VortonSim::CalculateVelocityGrid()
 		{
 			// Initialise grid position.
 			Optional<Vector2D> gridPoint = velocityGrid.GetOptional({ i, j });
-			if (gridPoint.IsValid())
+			Optional<vector<Vorton*>> vortonRefGridPoint = vortonLocations.GetOptional({ i, j });
+
+			if (gridPoint.IsValid() && vortonRefGridPoint.IsValid())
 			{
 				velocityGrid.Set({ i, j }, Vector2D(0.0f, 0.0f));
+				vector<Vorton*> emptyArray;
+				vortonLocations.Set({ i, j }, emptyArray);
 			}
 			else
 			{
@@ -79,6 +84,14 @@ bool VortonSim::CalculateVelocityGrid()
 			for (Vorton* vorton : contributingVortons)
 			{
 				velocityGrid.Set({ i, j }, gridPoint.GetValue() + vorton->GetVelocityAtPosition(position));
+
+				// Add fundamental vortons to vortonLocation array. Used in diffusion calc.
+				if (vorton->weight == 1)
+				{
+					vector<Vorton*> elementVorticities = vortonLocations.GetOptional({ i, j }).GetValue();
+					elementVorticities.push_back(vorton);
+					vortonLocations.Set({ i, j }, elementVorticities);
+				}
 			}
 
 			// Calculate velocity jacobian.

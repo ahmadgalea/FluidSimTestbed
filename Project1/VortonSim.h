@@ -18,6 +18,7 @@ private:
 	list<Vorton*> vortons;
 	QuadTree<Vorton>* vortonTree = nullptr;
 	NDimArray<Vector2D> velocityGrid;
+	NDimArray<vector<Vorton*>> vortonLocations;
 
 	vector<int> gridDimensions;
 	float xGridStep, yGridStep;

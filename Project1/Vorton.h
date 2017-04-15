@@ -15,7 +15,8 @@ private:
 	bool foreground;
 
 	float vortonRadius = 0.001;
-
+public:
+	unsigned int weight = 1;
 public:
 	Vorton() {}
 	Vorton(const list<Vorton*>& vortons);
