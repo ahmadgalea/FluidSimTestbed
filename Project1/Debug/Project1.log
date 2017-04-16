@@ -1,4 +1,4 @@
-﻿  Vorton.cpp
+﻿  VortonSim.cpp
 c:\github\fluidsimtestbed\project1\vorton.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
   Project1.vcxproj -> C:\GitHub\FluidSimTestbed\Debug\Project1.exe
   Project1.vcxproj -> C:\GitHub\FluidSimTestbed\Debug\Project1.pdb (Partial PDB)

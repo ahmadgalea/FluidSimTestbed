@@ -176,7 +176,7 @@ void VortonSim::Update(float delta)
 	CalculateBoundingRegion();
 
 	// Create vorton quadtree (should be parallelised).
-	vortonTree = new QuadTree<Vorton>(simulationRegion, vortons);
+	vortonTree = new QuadTree<Vorton>(simulationRegion, vortons, gridPointThreshold);
 
 	CalculateVelocityAndDiffusionAtVortons();
 
