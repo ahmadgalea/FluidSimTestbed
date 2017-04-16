@@ -23,7 +23,7 @@ private:
 	X* object;
 
 	BoundingBox boundingRegion;
-	const int MIN_SIZE = 1;
+	float minGridSize;
 
 	bool treeBuilt = false;
 
@@ -33,7 +33,7 @@ private:
 public:
 
 	QuadTree() {}
-	QuadTree(const BoundingBox& boundingRegion, const list<X*>& objects)
+	QuadTree(const BoundingBox& boundingRegion, const list<X*>& objects, const float& minSize = 0.0f) : minGridSize(minSize)
 	{
 		Initialise(boundingRegion, objects);
 	}
@@ -91,7 +91,7 @@ public:
 			list<X*> nodeObjects;
 			remove_copy_if(pendingInsert.begin(), pendingInsert.end(), nodeObjects.begin(), [quadrants&](X* obj) {return quadrants[quad].IsInsideRegion(obj->GetPosition())};);
 
-			if (nodeObjects.size() > 0)
+			if (nodeObjects.size() > 0 && quadrants[quad].width > minGridSize && quadrants[quad].height)
 			{
 				children[quad] = new QuadTree<X>(nodeRegion, quadrants[quad]);
 				children[quad].parent = this;

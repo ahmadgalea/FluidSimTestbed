@@ -11,7 +11,8 @@ Vorton::Vorton(const list<Vorton*>& vortons)
 
 		position += vorton->GetPosition()*fabs(vorton->GetVorticity());
 
-		weight++;
+		//weight++;
+		isFundamental = false;
 	}
 }
 
@@ -37,7 +38,36 @@ Vector2D Vorton::GetPosition() const
 	return position;
 }
 
+void Vorton::SetPosition(const Vector2D& pos)
+{
+	position = pos;
+}
+
 bool Vorton::isForeground() const
 {
 	return foreground;
+}
+
+Vector2D Vorton::GetVelocity() const
+{
+	return velocity;
+}
+void Vorton::SetVelocity(const Vector2D& vel)
+{
+	velocity = vel;
+}
+
+void Vorton::SetVorticity(const float& vort)
+{
+	vorticity = vort;
+}
+
+void Vorton::SetVorticityROC(const float& ROC)
+{
+	vortonROC = ROC;
+}
+
+float Vorton::GetVorticityROC() const
+{
+	return vortonROC;
 }

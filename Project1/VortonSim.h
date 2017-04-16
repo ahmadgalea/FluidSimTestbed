@@ -17,6 +17,7 @@ private:
 	BoundingBox simulationRegion;
 	list<Vorton*> vortons;
 	QuadTree<Vorton>* vortonTree = nullptr;
+
 	NDimArray<Vector2D> velocityGrid;
 	NDimArray<vector<Vorton*>> vortonLocations;
 
@@ -37,6 +38,10 @@ public:
 
 	void CalculateBoundingRegion();
 	bool CalculateVelocityGrid();
+	void UpdateVortons(float delta);
 
+	void CalculateVelocityAndDiffusionAtVortons();
+
+	void UpdateWithGrid(float delta);
 	void Update(float delta);
 };

@@ -86,7 +86,7 @@ bool VortonSim::CalculateVelocityGrid()
 				velocityGrid.Set({ i, j }, gridPoint.GetValue() + vorton->GetVelocityAtPosition(position));
 
 				// Add fundamental vortons to vortonLocation array. Used in diffusion calc.
-				if (vorton->weight == 1)
+				if (vorton->isFundamental)
 				{
 					vector<Vorton*> elementVorticities = vortonLocations.GetOptional({ i, j }).GetValue();
 					elementVorticities.push_back(vorton);
@@ -101,8 +101,7 @@ bool VortonSim::CalculateVelocityGrid()
 
 	return true;
 }
-
-void VortonSim::Update(float delta)
+void VortonSim::UpdateWithGrid(float delta)
 {
 	if (isSetup)
 	{
@@ -128,4 +127,58 @@ void VortonSim::Update(float delta)
 
 		delete vortonTree;
 	}
+}
+
+void VortonSim::CalculateVelocityAndDiffusionAtVortons()
+{
+	for (Vorton* vorton : vortons)
+	{
+		// Get contributing vortons(and super vortons).
+		vector<Vorton*> contributingVortons = vortonTree->GetElementsExternalToPoint(vorton->GetPosition(), gridPointThreshold);
+
+		Vector2D velocity(0.0f, 0.0f);
+		float diffusionRate = 0.0f;
+
+		// Calculate velocity at grid position.
+		for (Vorton* interactingVorton : contributingVortons)
+		{
+			velocity += interactingVorton->GetVelocityAtPosition(vorton->GetPosition());
+
+			// Is vorton a nearest neighbour?
+			if (interactingVorton->isFundamental)
+			{
+				// Is interactingVorton in front of Vorton?
+				Vector2D distance = interactingVorton->GetPosition() - vorton->GetPosition();
+				if ((vorton->GetVelocity().x*distance.x + vorton->GetVelocity().y*distance.y) > 0.0f)
+				{
+					diffusionRate += fluidViscosity*(interactingVorton->GetVorticity() - vorton->GetVorticity());
+				}
+			}
+		}
+		vorton->SetVelocity(velocity);
+		vorton->SetVorticityROC(diffusionRate);
+	}
+}
+
+void VortonSim::UpdateVortons(float delta)
+{
+	for (Vorton* vorton : vortons)
+	{
+		vorton->SetVorticity(vorton->GetVorticity() + vorton->GetVorticityROC()*delta);
+
+		vorton->SetPosition(vorton->GetPosition() + vorton->GetVelocity()*delta);
+	}
+}
+
+void VortonSim::Update(float delta)
+{
+	// Create box around Vortons
+	CalculateBoundingRegion();
+
+	// Create vorton quadtree (should be parallelised).
+	vortonTree = new QuadTree<Vorton>(simulationRegion, vortons);
+
+	CalculateVelocityAndDiffusionAtVortons();
+
+	UpdateVortons(delta);
 }
