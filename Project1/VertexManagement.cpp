@@ -22,7 +22,10 @@ void VertexManagement::LoadVertexData(GLuint& vertexBufferHandle, const GLuint& 
 	GLenum ErrorCheckValue = glGetError();
 
 	// Create vertex buffer
-	glGenBuffers(1, &vertexBufferHandle);
+	if (vertexBufferHandle == -1)
+	{
+		glGenBuffers(1, &vertexBufferHandle);
+	}
 
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferHandle);
 	glBufferData(GL_ARRAY_BUFFER, bufferSize, pointerToVertices, vertexDrawMode);
@@ -58,6 +61,37 @@ void VertexManagement::CreateIndexArrays(vector<GLuint>& indexBufferHandles, vec
 		//std::cout<<"Error in mesh initialization."<<std::endl;
 		return;
 	}
+}
+
+mat4* VertexManagement::LoadMatrixData(GLuint& vertexBufferHandle, const GLuint& bufferSize)
+{
+	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferHandle);
+
+	// Allocate matrix buffer and flag as persistent.
+	GLbitfield flags = GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | GL_MAP_COHERENT_BIT;
+	glBufferStorage(GL_ARRAY_BUFFER, bufferSize, 0, flags);
+
+	return (mat4*)glMapBufferRange(GL_ARRAY_BUFFER, 0, bufferSize, flags); // Get persistent pointer to matrix buffer
+}
+
+void VertexManagement::WaitBuffer(GLsync& syncObject)
+{
+	GLenum waitReturn = GL_UNSIGNALED;
+
+	while (waitReturn != GL_ALREADY_SIGNALED && waitReturn != GL_CONDITION_SATISFIED)
+	{
+		waitReturn = glClientWaitSync(syncObject, GL_SYNC_FLUSH_COMMANDS_BIT, 1);
+	}
+}
+
+void VertexManagement::LockBuffer(GLsync& syncObject)
+{
+	if (syncObject)
+	{
+		glDeleteSync(syncObject);
+	}
+
+	syncObject = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
 }
 
 // Has been factored into ShaderProgram.h

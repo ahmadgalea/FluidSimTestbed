@@ -25,7 +25,7 @@ public:
 	GLuint programID;
 	string programName;
 
-	map<string, mat4*> matrixPointers;
+	map<string, mat4*> uniformMatrixPointers;
 	map<string, Texture*> texturePointers;
 
 public:
@@ -42,10 +42,13 @@ public:
 	GLint GetUniformLocation(const string& name) const;
 
 	bool SetVertexAttribute(const string& name, int size);
+	bool SetInstancedVertexVecFAttribute(const string& name, int size, int divisor);
+	bool SetInstancedVertexMat4FAttribute(const string& name, int divisor);
+
 	bool SetMat4FUniform(const string& name, const mat4* matrixPointer);
 	bool SetScalIUniform(const string& name, int uniformValue);
 
-	void AddShaderMatrix(const string& name, const mat4* matrixPointer);
+	void AddUniformMatrix(const string& name, const mat4* matrixPointer);
 	void AddTexture(const string& name, Texture* texturePointer);
 
 	void UpdateShaderMatrices();

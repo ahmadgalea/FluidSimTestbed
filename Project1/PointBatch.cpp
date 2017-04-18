@@ -68,6 +68,8 @@ void PointBatch::RenderBatch(ShaderProgram* shaderProgram, int count)
 
 	glDrawArraysInstanced(GL_POINTS, 0, positions.size(), count);
 
+	LockBuffer(syncObject);
+
 	glUseProgram(0);
 	glBindVertexArray(0);
 }

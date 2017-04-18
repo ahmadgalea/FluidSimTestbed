@@ -110,6 +110,51 @@ bool ShaderProgram::SetVertexAttribute(const string& name, int size)
 	return true;
 }
 
+bool ShaderProgram::SetInstancedVertexVecFAttribute(const string& name, int size, int divisor)
+{
+	GLenum ErrorCheckValue = glGetError();
+
+	int attribIndex = GetAttributeLocation(name);
+
+	glVertexAttribPointer(attribIndex, size, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(attribIndex);
+	glVertexAttribDivisor(attribIndex, divisor);
+
+	ErrorCheckValue = glGetError();
+	if (ErrorCheckValue != GL_NO_ERROR)
+	{
+		cout << "ERROR: Could not assign attribute " << name << endl;
+		fprintf(stderr, "%s \n", gluErrorString(ErrorCheckValue));
+		return false;
+	}
+
+	return true;
+}
+
+bool ShaderProgram::SetInstancedVertexMat4FAttribute(const string& name, int divisor)
+{
+	GLenum ErrorCheckValue = glGetError();
+
+	int attribIndex = GetAttributeLocation(name);
+
+	for (unsigned int col = 0; col < 4; col++)
+	{
+		glVertexAttribPointer(attribIndex + col, 4, GL_FLOAT, GL_FALSE, sizeof(mat4), (void*)(sizeof(vec4) * col));
+		glEnableVertexAttribArray(attribIndex + col);
+
+		glVertexAttribDivisor(attribIndex + col, divisor);
+	}
+	ErrorCheckValue = glGetError();
+	if (ErrorCheckValue != GL_NO_ERROR)
+	{
+		cout << "ERROR: Could not assign attribute " << name << endl;
+		fprintf(stderr, "%s \n", gluErrorString(ErrorCheckValue));
+		return false;
+	}
+
+	return true;
+}
+
 bool ShaderProgram::SetMat4FUniform(const string& name, const mat4* matrixPointer)
 {
 	GLenum ErrorCheckValue = glGetError();
@@ -148,9 +193,9 @@ bool ShaderProgram::SetScalIUniform(const string& name, int uniformValue)
 	return true;
 }
 
-void ShaderProgram::AddShaderMatrix(const string& name, const mat4* matrixPointer)
+void ShaderProgram::AddUniformMatrix(const string& name, const mat4* matrixPointer)
 {
-	matrixPointers.insert(pair<string, mat4*>(name, (mat4*)matrixPointer));
+	uniformMatrixPointers.insert(pair<string, mat4*>(name, (mat4*)matrixPointer));
 }
 
 void ShaderProgram::AddTexture(const string& name, Texture*texturePointer)
@@ -164,7 +209,7 @@ void ShaderProgram::UpdateShaderMatrices()
 {
 	Bind();
 
-	for (pair<string, mat4*> pointer : matrixPointers)
+	for (pair<string, mat4*> pointer : uniformMatrixPointers)
 	{
 		SetMat4FUniform(pointer.first, pointer.second);
 	}

@@ -14,7 +14,7 @@ void MeshShaderInterface::SetShaderMatrixPointers(Camera* camera)
 {
 	PVMatrix = camera->GetPVMatrix();
 	UpdatePVMMatrix();
-	shaderProgram->AddShaderMatrix("ProjectionViewModel", &PVMMatrix);
+	shaderProgram->AddUniformMatrix("ProjectionViewModel", &PVMMatrix);
 }
 
 void MeshShaderInterface::SetShaderTexturePointers()

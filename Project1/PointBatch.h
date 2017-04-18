@@ -22,6 +22,8 @@ private:
 	GLuint vertexBufferHandle = -1;
 	GLuint colourBufferHandle = -1;
 
+	GLsync syncObject;
+
 public:
 	PointBatch();
 	~PointBatch();

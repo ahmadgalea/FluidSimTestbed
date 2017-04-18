@@ -38,7 +38,7 @@ void ApplicationManager::InitialiseApplication()
 	gridMesh.AddVertex(vec3(-0.5, -0.5, 0.0));
 	
 	ShaderProgram* shader = shaderManager.GetProgramFromName("TexturedVertexTexturedFragment");
-	shader->AddShaderMatrix("ProjectionViewModel", camera.GetPVMatrix());
+	shader->AddUniformMatrix("ProjectionViewModel", camera.GetPVMatrix());
 
 	Texture* texture = textureManager.GetTextureFromName("blue_car");
 	shader->AddTexture("texture", texture);

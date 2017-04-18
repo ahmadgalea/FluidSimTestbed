@@ -90,6 +90,9 @@
     <ClCompile Include="VortonSim.cpp">
       <Filter>FluidSimTestbed\FluidSim</Filter>
     </ClCompile>
+    <ClCompile Include="FluidSim.cpp">
+      <Filter>FluidSimTestbed\FluidSim</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApplicationManager.h">
@@ -175,6 +178,9 @@
     </ClInclude>
     <ClInclude Include="BoundingBox.h">
       <Filter>FluidSimTestbed\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="FluidSim.h">
+      <Filter>FluidSimTestbed\FluidSim</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
